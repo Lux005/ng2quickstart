@@ -2,8 +2,13 @@
   "name": "angular-quickstart",
   "version": "1.0.0",
   "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "author": {
+    "name": "Dennis Lu",
+    "email": "dennisxlu@gmail.com"
+  },
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "start": "tsc && concurrently \"tsc -w\" \"live-server\" ",
+    "start-lite": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "e2e": "tsc && concurrently \"http-server -s\" \"protractor protractor.config.js\" --kill-others --success first",
     "lint": "tslint ./app/**/*.ts -t verbose",
     "lite": "lite-server",
@@ -14,7 +19,6 @@
     "tsc:w": "tsc -w"
   },
   "keywords": [],
-  "author": "",
   "license": "MIT",
   "dependencies": {
     "@angular/common": "~2.3.0",
@@ -36,6 +40,7 @@
   "devDependencies": {
     "concurrently": "^3.1.0",
     "lite-server": "^2.2.2",
+    "live-server": "^1.1.0",
     "typescript": "~2.0.10",
 
     "canonical-path": "0.0.2",
