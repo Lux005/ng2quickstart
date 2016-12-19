@@ -1,35 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { APP_BASE_HREF } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import {APP_BASE_HREF} from '@angular/common';//define the base app dir
-
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
-
-import './rxjs-extensions';
 import { AppComponent } from './app.component';
-import { AppRoutingModule, routedComponents } from './app-routing.module';
-import { HeroService } from './hero.service';
-import { HeroSearchComponent } from './hero-search.component';
+import { AppRoutingModule } from './app.routing.module';
+
+import { NotFoundModule } from './notfound/notfound.module';
+import { HomeModule } from './home/home.module';
+import { LoginModule } from './login/login.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 100 })
-  ],
-  declarations: [
-    AppComponent,
-    HeroSearchComponent,
-    routedComponents
-  ],
-  providers: [
-    {provide: APP_BASE_HREF, useValue : '/' },
-    HeroService
-  ],
-  bootstrap: [AppComponent]
+	imports: [
+		BrowserModule,
+		HttpModule,
+		AppRoutingModule,
+		NotFoundModule,
+		HomeModule,
+    	LoginModule,
+		DashboardModule
+	],
+	declarations: [AppComponent],
+	providers: [{provide: APP_BASE_HREF, useValue : '/' }],
+	bootstrap: [AppComponent]
+
 })
+
 export class AppModule { }
